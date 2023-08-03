@@ -194,6 +194,11 @@ securityContext:
   runAsUser: 10001
   runAsGroup: 10001
   runAsNonRoot: true
+  capabilities:
+    add:
+      - SYS_PTRACE
+      - SETUID
+      - SETGID
 
 helm:
   timeout: 900
