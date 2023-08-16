@@ -382,6 +382,9 @@ spec:
             runAsUser: {{ .Values.securityContext.runAsUser }}
             runAsGroup: {{ .Values.securityContext.runAsGroup }}
             runAsNonRoot: {{ .Values.securityContext.runAsNonRoot }}
+            capabilities:
+              add:
+            {{ toYaml .Values.securityContext.capabilities.add | indent 6 }}
           {{- end }}
           imagePullPolicy: {{ .Values.image.pullPolicy }}
 
