@@ -169,6 +169,11 @@ spec:
             runAsUser: {{ .Values.securityContext.runAsUser }}
             runAsGroup: {{ .Values.securityContext.runAsGroup }}
             runAsNonRoot: {{ .Values.securityContext.runAsNonRoot }}
+            capabilities:
+              add:
+                - SYS_PTRACE
+                - SETUID
+                - SETGID
           {{- else }}
           command: ["cp", "/default_prometheus_config/prometheus.yml", "/prometheus_configs/prometheus.yml"]
           {{- end }}
